@@ -39,17 +39,23 @@ Mahnoor: Supabase database, Vercel deployment, and GitHub version control
 
 
 
-✨ Features
+**✨ Features & Architecture**
 -
-🧮 **Instant Merit Calculator:** Client-side calculation using the official 2026 formula (60% Entry Test + 40% HSC/Equivalency) with exact two-decimal precision.
+🤖 **Branch Recommendation Engine:** A lightning-fast, rule-based MVP that matches your aggregate and goals to the right department without slow API calls. (Full AI integration planned for future).
 
-🤖 **Branch Recommendation Engine:** A rule-based filtering system (hardcoded logic in this MVP) that matches a student's aggregate score, personal interests, and career goals with the right NED department. Full AI-driven recommendations are planned for a future iteration.
+_**Smart Filtering:**_ Ignores filler words to focus purely on your core interests.
 
-💬 **FAQ Chatbot:** An embedded, conversational assistant loaded with verified 2026 admission rules, deadlines, and fee structures.
+**_Dynamic Scoring:_** Awards points based on keyword matches, giving high achievers (>80%) an algorithmic boost toward competitive fields.
 
-📂 **Merit List Viewer:** Instant access to previous years' cutoff PDFs.
+_**Always Helpful:**_ Gracefully defaults to strong general-fit programs if keywords aren't recognized.
 
-🔒 **Secure Anonymous Feedback:** A stateless review form connected to a Supabase backend, using strict Row Level Security (RLS) policies to allow public submissions while keeping viewing admin-only.
+⚠️ _Disclaimer:_ This tool provides smart suggestions to help guide preferences; it does not guarantee or confirm official admission.
+
+💬 **FAQ Chatbot:** An embedded assistant featuring hardcoded, verified answers for 2026 admission rules, deadlines, and fees. (AI-driven conversational agent is a future expansion).
+
+📂 **Merit List Viewer:** Instant, zero-friction access to previous years' cutoff PDFs.
+
+🔒 **Secure Anonymous Feedback:** A stateless Supabase form utilizing strict Row Level Security (RLS) to keep public submissions safe and admin-only.
 
  Technology Stack
 -
