@@ -1,7 +1,5 @@
 // Static FAQ context for the assistant widget. No RAG/vector DB —
 // the whole list is matched against the visitor's question directly.
-// Static FAQ context for the assistant widget. No RAG/vector DB —
-// the whole list is matched against the visitor's question directly.
 
 export const faqs = [
   
@@ -35,7 +33,7 @@ export const faqs = [
   // --- MERIT & CALCULATIONS ---
   {
     q: 'How is NED merit calculated?',
-    a: 'Merit Score = 60% of your NED Entry Test Marks + 40% of your HSC Part-I (or O-Level equivalency) marks. Use the Merit Calculator on this page for an instant number.',
+    a: 'Merit Score = 60% of your NED Entry Test Marks + 40% of your HSC Part-I (or O-Level equivalency / Equivalent Examinations) marks. Use the Merit Calculator on this page for an instant number.',
     keywords: ['merit', 'formula', 'calculate', 'aggregate', '60/40', 'merit score'],
   },
   {
@@ -59,6 +57,11 @@ export const faqs = [
     q: 'What does the entry test cover?',
     a: 'The computer-based test has 4 sections (25 MCQs each). Pre-Engineering covers English, Math, Physics, Chemistry. Pre-Medical covers English, Biology, Physics, Chemistry. Computer Science covers English, Math, Physics, and CS.',
     keywords: ['entry test pattern', 'syllabus', 'subjects', 'mcqs', 'sections'],
+  },
+  {
+    q: 'When is the Entry Test held and when is the first merit list?',
+    a: 'Phase-I test: 12–15 June. Phase-II test: 6–9 July. 1st provisional merit list: 16 July. Merit is calculated as 60% Entry Test + 40% HSC Part-I / O-Level / Equivalent Examinations marks. Dates are subject to change by the university, always confirm on the official admission portal.',
+    keywords: ['entry test dates', 'phase 1 dates', 'phase 2 dates', 'test schedule', 'when is the test', 'first merit list', 'provisional list', '12 june', '15 june', '6 july', '9 july', '16 july'],
   },
   {
     q: 'How do I get my Admit Card?',
