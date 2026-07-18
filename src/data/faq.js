@@ -2,7 +2,7 @@
 // the whole list is matched against the visitor's question directly.
 
 export const faqs = [
-  
+
   // --- ADMISSION FORM & PROCESS ---
   {
     q: 'How can I get the Admission Form?',
@@ -15,6 +15,11 @@ export const faqs = [
     keywords: ['eligible', 'eligibility', 'who can apply', 'year', 'passing year'],
   },
   {
+    q: 'When is the Entry Test held?',
+    a: 'Phase-I test: 12-15 June. Phase-II test: 6-9 July. Dates are subject to change by the university, always confirm on the official admission portal.',
+    keywords: ['entry test dates', 'phase 1 dates', 'phase 2 dates', 'test schedule', 'when is the test', '12 june', '15 june', '6 july', '9 july', 'entry test', 'when is the entry test', 'test date', 'admission test'],
+  },
+  {
     q: 'What is the minimum percentage required in HSC?',
     a: 'For BE, B.Arch, and BS(CS), a minimum of 60% is required. However, candidates with 57% in HSC-Part I can apply conditionally (must secure 60% overall). For all other BS programmes, a minimum of 50% is required.',
     keywords: ['minimum percentage', 'hsc marks', 'required percentage', '60%', '50%'],
@@ -23,6 +28,24 @@ export const faqs = [
     q: 'Where do I submit the Admission Form?',
     a: 'You must print the Admission Form and Annexures (I & II), get them signed by an Oath Commissioner, and submit them with required documents to the Admission Office at the time of your interview.',
     keywords: ['submit form', 'where to submit', 'physical form', 'interview', 'oath commissioner'],
+  },
+  {
+    q: 'What documents do I need to bring to my interview?',
+    a: 'You must submit the following at the time of interview/admission:\n' +
+       'Attested Photocopies:\n' +
+       '• Admit Card of NED UET Pre-Admission Entry Test\n' +
+       '• S.S.C or Equivalent Certificate\n' +
+       '• S.S.C or Equivalent Marks Certificate\n' +
+       '• CNIC / B-Form (original to be retained by NED UET)\n' +
+       '• HSC or Equivalent Marks Certificate\n' +
+       '• IBCC Equivalence Certificate (for Foreign Board candidates)\n' +
+       '• Domicile\n' +
+       '• Affidavit of Non-Political Activities\n' +
+       '• Photographs (06 Nos.) — see the photograph guideline for size/format details\n' +
+       '• Admission Form (printed from the Admission Portal, filled completely, and signed, with Annexures)\n' +
+       'Additional Documents (if applicable):\n' +
+       '• Migration Certificate (required for candidates other than Karachi Board)',
+    keywords: ['documents', 'what to bring', 'required documents', 'documents needed', 'checklist', 'interview documents', 'document checklist'],
   },
   {
     q: 'How can I pay the Application Fee?',
@@ -59,9 +82,14 @@ export const faqs = [
     keywords: ['entry test pattern', 'syllabus', 'subjects', 'mcqs', 'sections'],
   },
   {
-    q: 'When is the Entry Test held and when is the first merit list?',
-    a: 'Phase-I test: 12–15 June. Phase-II test: 6–9 July. 1st provisional merit list: 16 July. Merit is calculated as 60% Entry Test + 40% HSC Part-I / O-Level / Equivalent Examinations marks. Dates are subject to change by the university, always confirm on the official admission portal.',
-    keywords: ['entry test dates', 'phase 1 dates', 'phase 2 dates', 'test schedule', 'when is the test', 'first merit list', 'provisional list', '12 june', '15 june', '6 july', '9 july', '16 july'],
+    q: 'When is the Entry Test held?',
+    a: 'Phase-I test: 12–15 June. Phase-II test: 6–9 July. Dates are subject to change by the university, always confirm on the official admission portal.',
+    keywords: ['entry test dates', 'phase 1 dates', 'phase 2 dates', 'test schedule', 'when is the test', '12 june', '15 june', '6 july', '9 july'],
+  },
+  {
+    q: 'When is the first merit list announced?',
+    a: '1st provisional merit list: 16 July. Merit is calculated as 60% Entry Test + 40% HSC Part-I / O-Level / Equivalent Examinations marks. Dates are subject to change by the university, always confirm on the official admission portal.',
+    keywords: ['first merit list', 'provisional list', '16 july', 'merit list date', 'when is merit list'],
   },
   {
     q: 'How do I get my Admit Card?',
@@ -70,7 +98,7 @@ export const faqs = [
   },
 
   // --- FEES & FINANCES ---
- {
+  {
     q: 'How much is the Self Finance fee?',
     a: 'For the 2026 intake, the Self-Finance (Regular) fee is Rs. 916,700. For Self-Finance (Sponsored Seats), the fee is Rs. 1,133,000. This must be paid by the deadline for the online application form.',
     keywords: ['self finance', 'self sponsor', 'sponsored seat', '916700', '1133000'],
@@ -90,7 +118,6 @@ export const faqs = [
     a: 'No, your admission will not be confirmed until the admission fee is paid on the day of your interview/admission. It must be paid via Cash, Pay Order, or Demand Draft.',
     keywords: ['admission fee', 'pay later', 'interview day', 'cash', 'pay order'],
   },
-
   {
     q: 'What is the schedule for subsequent call lists?',
     a: 'Subsequent lists depend on seat availability. Key upcoming dates: \n' +
@@ -114,7 +141,7 @@ export const faqs = [
   },
   {
     q: 'Which department should I choose?',
-    a: 'It depends on your interests and strengths — try the AI Branch Recommendation tool on this page. It takes your marks, interests, and goals and suggests departments with reasoning.',
+    a: 'It depends on your interests and strengths — try the Branch Recommendation tool on this page. It takes your marks, interests, and goals and suggests departments with reasoning.',
     keywords: ['which department', 'branch', 'recommend', 'choose', 'best department'],
   }
 ];
