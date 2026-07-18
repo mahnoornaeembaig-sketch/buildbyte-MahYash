@@ -1,4 +1,11 @@
-import { fetchAllDepartments } from '../data/departments.js'
+import { allDepartments } from '../data/departments.js'
+
+// This function scores departments locally against the student's stated
+// interests and goal so the demo works with zero backend dependency.
+//
+// To wire this to a real backend later, replace the body of
+// getRecommendation with a fetch to your API/Edge Function, keeping the
+// same input/output shape so no component changes are needed.
 
 const STOP_WORDS = new Set([
   'and', 'the', 'a', 'an', 'to', 'of', 'in', 'for', 'with', 'my', 'i', 'want',
@@ -13,8 +20,6 @@ function tokenize(text) {
 }
 
 export async function getRecommendation({ percentage, interests, goal }) {
-  const allDepartments = await fetchAllDepartments()
-
   const interestText = interests.toLowerCase()
   const goalText = goal.toLowerCase()
   const combinedText = `${interestText} ${goalText}`
@@ -24,13 +29,19 @@ export async function getRecommendation({ percentage, interests, goal }) {
     let score = 0
     const reasons = new Set()
 
-    ;(d.interests || []).forEach((tag) => {
+    d.interests.forEach((tag) => {
       const tagLower = tag.toLowerCase()
+
+      // Full-phrase match (e.g. "computer science" appears verbatim)
       if (combinedText.includes(tagLower)) {
         score += 3
         reasons.add(`matches your interest in ${tag}`)
         return
       }
+
+      // Word-level match: any significant word in the tag appears in
+      // what the student typed (e.g. tag "programming" matches "I love
+      // programming apps")
       const tagWords = tagLower.split(' ').filter((w) => w.length > 3)
       const hit = tagWords.some((w) => combinedTokens.has(w))
       if (hit) {
@@ -59,6 +70,7 @@ export async function getRecommendation({ percentage, interests, goal }) {
   const withSignal = ranked.filter((d) => d.score > 0).slice(0, 3)
   const picks = withSignal.length > 0 ? withSignal : ranked.slice(0, 3)
 
+  // simulate a brief AI-call latency so the UI's loading state is real
   await new Promise((r) => setTimeout(r, 550))
 
   return picks.map((p) => ({
