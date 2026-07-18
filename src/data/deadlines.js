@@ -49,7 +49,7 @@ export const timeline = [
     phase: 'Merit',
     label: 'Subsequent merit lists',
     detail: 'Further merit lists released in phases as seats are confirmed and vacated.',
-    date: 'Rolling — check portal',
+    date: 'Rolling  check portal',
     status: 'upcoming',
   },
   {
@@ -69,7 +69,7 @@ export const meritFormula = {
 
 export const quickFacts = [
   { label: 'Founded', value: '1921' },
-  { label: 'Status', value: 'Public — Govt. of Sindh' },
+  { label: 'Status', value: 'Public  Govt. of Sindh' },
   { label: 'Campuses', value: '4, across Sindh' },
   { label: 'Typical closing merit (top depts.)', value: '75–85%' },
 ]
@@ -91,14 +91,14 @@ export const officialLinks = [
     href: 'https://www.neduet.edu.pk/sites/default/files/Admissions-2026/ADMISSIONS_SCHEDULE_2026.pdf',
   },
   {
-    title: 'NED University — Home',
+    title: 'NED University  Home',
     desc: 'Main university website for news, faculties, and contacts.',
     href: 'https://www.neduet.edu.pk/',
   },
 ]
 
 export const meritLists = [
-  { year: '2025', title: 'Provisional Merit List — 2025 Intake', href: '#' },
-  { year: '2024', title: 'Provisional Merit List — 2024 Intake', href: '#' },
-  { year: '2023', title: 'Provisional Merit List — 2023 Intake', href: '#' },
+  { year: '2025', title: 'Provisional Merit List  2025 Intake', href: '#' },
+  { year: '2024', title: 'Provisional Merit List  2024 Intake', href: '#' },
+  { year: '2023', title: 'Provisional Merit List  2023 Intake', href: '#' },
 ]

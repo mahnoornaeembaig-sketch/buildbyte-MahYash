@@ -74,7 +74,7 @@ export const faculties = [
 ];
 
 // Interest/goal tags used by the AI Branch Recommendation matcher.
-// Keep tags short and specific — they're matched as substrings/words
+// Keep tags short and specific  they're matched as substrings/words
 // against the student's free-text interests and career goal.
 const interestMap = {
   "Civil Engineering": ["construction", "structures", "buildings", "infrastructure", "concrete", "surveying", "roads", "bridges"],

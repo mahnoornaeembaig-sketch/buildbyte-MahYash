@@ -126,7 +126,7 @@ export default function Nav() {
             Official Portal ↗
           </a>
 
-          {/* Hamburger — mobile only */}
+          {/* Hamburger  mobile only */}
           <button
             onClick={toggleMenu}
             aria-label="Toggle menu"

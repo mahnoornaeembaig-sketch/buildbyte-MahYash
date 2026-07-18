@@ -52,7 +52,7 @@ export default function Hero() {
             }`}
           >
             Timelines, departments, merit cutoffs, and an AI guide that answers the
-            same questions seniors field one-on-one, every cycle — instantly, and
+            same questions seniors field one-on-one, every cycle  instantly, and
             without an account.
           </p>
           <div

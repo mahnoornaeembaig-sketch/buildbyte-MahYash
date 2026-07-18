@@ -1,4 +1,4 @@
-// Static FAQ context for the assistant widget. No RAG/vector DB —
+// Static FAQ context for the assistant widget. No RAG/vector DB 
 // the whole list is matched against the visitor's question directly.
 
 export const faqs = [
@@ -41,7 +41,7 @@ export const faqs = [
        '• IBCC Equivalence Certificate (for Foreign Board candidates)\n' +
        '• Domicile\n' +
        '• Affidavit of Non-Political Activities\n' +
-       '• Photographs (06 Nos.) — see the photograph guideline for size/format details\n' +
+       '• Photographs (06 Nos.)  see the photograph guideline for size/format details\n' +
        '• Admission Form (printed from the Admission Portal, filled completely, and signed, with Annexures)\n' +
        'Additional Documents (if applicable):\n' +
        '• Migration Certificate (required for candidates other than Karachi Board)',
@@ -141,10 +141,10 @@ export const faqs = [
   },
   {
     q: 'Which department should I choose?',
-    a: 'It depends on your interests and strengths — try the Branch Recommendation tool on this page. It takes your marks, interests, and goals and suggests departments with reasoning.',
+    a: 'It depends on your interests and strengths  try the Branch Recommendation tool on this page. It takes your marks, interests, and goals and suggests departments with reasoning.',
     keywords: ['which department', 'branch', 'recommend', 'choose', 'best department'],
   }
 ];
 
 export const fallbackAnswer =
-  "I don't have a confirmed answer for that yet — this assistant only answers from verified FAQ content. Please check the official NED admission portal (www.neduet.edu.pk/admission), or ask one of the questions below.";
+  "I don't have a confirmed answer for that yet  this assistant only answers from verified FAQ content. Please check the official NED admission portal (www.neduet.edu.pk/admission), or ask one of the questions below.";

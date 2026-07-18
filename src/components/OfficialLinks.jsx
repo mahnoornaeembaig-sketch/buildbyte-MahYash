@@ -15,7 +15,7 @@ export default function OfficialLinks() {
           <p className="eyebrow mb-3">Verified Sources</p>
           <h2 className="mb-3 text-3xl font-semibold text-paper">Official links.</h2>
           <p className="mb-10 max-w-2xl text-sm leading-relaxed text-slate-muted">
-            Every action that matters — registering, applying, checking the schedule — happens
+            Every action that matters  registering, applying, checking the schedule  happens
             on the university's own site. We just point you straight there.
           </p>
         </div>

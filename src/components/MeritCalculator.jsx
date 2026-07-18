@@ -49,7 +49,7 @@ export default function MeritCalculator() {
           <label className="block">
             <span className="mb-2 flex items-baseline justify-between font-mono text-xs uppercase tracking-wider text-slate-muted">
               Entry Test Score
-              <span className="text-paper">{testScore === '' ? '—' : `${test.toFixed(2)}%`}</span>
+              <span className="text-paper">{testScore === '' ? '' : `${test.toFixed(2)}%`}</span>
             </span>
             <input
               type="number"
@@ -75,7 +75,7 @@ export default function MeritCalculator() {
           <label className="block">
             <span className="mb-2 flex items-baseline justify-between font-mono text-xs uppercase tracking-wider text-slate-muted">
               HSC Part-I / Equivalency
-              <span className="text-paper">{academic === '' ? '—' : `${acad.toFixed(2)}%`}</span>
+              <span className="text-paper">{academic === '' ? '' : `${acad.toFixed(2)}%`}</span>
             </span>
             <input
               type="number"
@@ -123,7 +123,7 @@ export default function MeritCalculator() {
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <span className="font-display text-3xl text-paper">
-                {hasInput ? aggregate.toFixed(2) : '—'}
+                {hasInput ? aggregate.toFixed(2) : ''}
               </span>
               <span className="font-mono text-[10px] uppercase tracking-wider text-slate-muted">
                 Aggregate %

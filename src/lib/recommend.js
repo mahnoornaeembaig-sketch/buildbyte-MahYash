@@ -79,6 +79,6 @@ export async function getRecommendation({ percentage, interests, goal }) {
     reason:
       p.reasons.length > 0
         ? `Recommended because it ${p.reasons.join(' and it ')}.`
-        : `A strong general fit at your merit range — ${p.blurb}`,
+        : `A strong general fit at your merit range  ${p.blurb}`,
   }))
 }

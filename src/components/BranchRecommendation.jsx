@@ -27,7 +27,7 @@ export default function BranchRecommendation() {
         <p className="eyebrow mb-3">Instrument 02</p>
         <h2 className="mb-3 text-3xl font-semibold text-paper">Find your department.</h2>
         <p className="mb-10 max-w-2xl text-sm leading-relaxed text-slate-muted">
-          A short form, an instant recommendation. Nothing is saved — the result appears
+          A short form, an instant recommendation. Nothing is saved  the result appears
           right here, on this screen.
         </p>
 
