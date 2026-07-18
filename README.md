@@ -89,9 +89,9 @@ The app will be available at http://localhost:5173 (default Vite port).
 ⚙️ Environment Variables
 -
 
-To run this project locally, create a .env file in the root directory. Do not expose your actual keys. The file should contain the following variables:
+To run this project locally, create a .env file in the root directory
 
 VITE_SUPABASE_URL=your_supabase_project_url_here
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key_here
 
-If you'd like access to the actual keys (e.g., for testing or evaluation), kindly reach out to us via email.
+If you'd like access to the actual keys (e.g., for testing or evaluation), kindly reach out to us via email:)
