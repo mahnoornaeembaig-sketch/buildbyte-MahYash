@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { getRecommendation } from '../lib/recommend.js'
 
 export default function BranchRecommendation() {
@@ -7,6 +8,14 @@ export default function BranchRecommendation() {
   const [goal, setGoal] = useState('')
   const [loading, setLoading] = useState(false)
   const [results, setResults] = useState(null)
+
+  // Logic moved to component top-level for accessibility
+  const getLevel = (agg) => {
+    if (agg >= 85) return { label: "Elite Tier", width: "95%", color: "bg-amber-500" };
+    if (agg >= 80) return { label: "High Tier", width: "75%", color: "bg-blue-400" };
+    if (agg >= 70) return { label: "Core Tier", width: "50%", color: "bg-sky-500" };
+    return { label: "Standard", width: "30%", color: "bg-gray-500" };
+  };
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -27,7 +36,7 @@ export default function BranchRecommendation() {
         <p className="eyebrow mb-3">Instrument 02</p>
         <h2 className="mb-3 text-3xl font-semibold text-paper">Find your department.</h2>
         <p className="mb-10 max-w-2xl text-sm leading-relaxed text-slate-muted">
-          A short form, an instant recommendation. Nothing is saved  the result appears
+          A short form, an instant recommendation. Nothing is saved; the result appears
           right here, on this screen.
         </p>
 
@@ -107,6 +116,21 @@ export default function BranchRecommendation() {
             )}
             {results && (
               <div className="space-y-5">
+                <div className="mb-6">
+                  <div className="flex justify-between text-[10px] uppercase tracking-widest text-slate-muted mb-2">
+                    <span>Merit Tier</span>
+                    <span className="text-amber">{getLevel(parseFloat(percentage)).label}</span>
+                  </div>
+                  <div className="w-full bg-navy-deep h-3 rounded-full overflow-hidden border border-white/10">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: getLevel(parseFloat(percentage)).width }}
+                      transition={{ duration: 1.5, ease: "easeOut" }}
+                      className={`h-full ${getLevel(parseFloat(percentage)).color}`}
+                    />
+                  </div>
+                </div>
+
                 <p className="eyebrow">Recommended for you</p>
                 {results.map((r, i) => (
                   <div key={r.name} className="border-b border-white/10 pb-4 last:border-0 last:pb-0">

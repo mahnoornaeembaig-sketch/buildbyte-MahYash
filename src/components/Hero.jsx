@@ -38,14 +38,14 @@ export default function Hero() {
           >
             NED Admissions 2026 · Verified Guide
           </p>
-          <h1
-            className={`max-w-xl text-4xl font-semibold leading-[1.08] text-paper transition-all duration-700 ease-out sm:text-5xl ${
-              visible ? 'translate-y-0 opacity-100 delay-100' : 'translate-y-4 opacity-0'
-            }`}
-          >
-            Every question a NED aspirant asks has already been answered.
-            <span className="text-amber"> We centralized it.</span>
-          </h1>
+         <h1
+  className={`max-w-xl text-4xl font-semibold tracking-tighter leading-[1.08] text-paper transition-all duration-700 ease-out sm:text-5xl ${
+    visible ? 'translate-y-0 opacity-100 delay-100' : 'translate-y-4 opacity-0'
+  }`}
+>
+  Every question a NED aspirant asks has already been answered.
+  <span className="text-amber"> We centralized it.</span>
+</h1>
           <p
             className={`mt-6 max-w-lg text-base leading-relaxed text-slate-muted transition-all duration-700 ease-out ${
               visible ? 'translate-y-0 opacity-100 delay-200' : 'translate-y-4 opacity-0'
