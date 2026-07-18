@@ -12,8 +12,9 @@ export default function Departments() {
     >
       <div className="mx-auto max-w-6xl px-6">
         <div
+          // Added md:opacity-100 and kept opacity-100 for mobile
           className={`transition-all duration-700 ease-out ${
-            visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+            visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-100 md:opacity-0'
           }`}
         >
           <p className="eyebrow mb-3">Programme Directory</p>
@@ -28,8 +29,9 @@ export default function Departments() {
           {faculties.map((fac, facIndex) => (
             <div
               key={fac.code}
+              // Added md:opacity-100 to ensure visibility on mobile
               className={`transition-all duration-700 ease-out ${
-                visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-100 md:opacity-0'
               }`}
               style={{ transitionDelay: visible ? `${150 + facIndex * 100}ms` : '0ms' }}
             >
@@ -38,12 +40,12 @@ export default function Departments() {
                 <h3 className="font-display text-xl text-paper">{fac.name}</h3>
               </div>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {/* This is the fix! It now correctly reads the strings instead of objects */}
                 {fac.departments.map((deptName, deptIndex) => (
                   <div
                     key={deptName}
+                    // Added md:opacity-100 to ensure visibility on mobile
                     className={`flex items-center rounded-sm border border-white/10 bg-navy p-5 transition-all duration-500 ease-out hover:border-amber/50 ${
-                      visible ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+                      visible ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-100 md:opacity-0'
                     }`}
                     style={{
                       transitionDelay: visible
