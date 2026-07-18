@@ -4,7 +4,7 @@ Your Verified Guide to NED 2026 Admissions
 
 A centralized, stateless, and intelligent platform designed to streamline the university admission process, calculate merit, and provide branch recommendations. All without requiring a user login.
 
-🔗 Live Demo: buildbyte-mah-yash.vercel.app
+🔗 **Live Demo:** [buildbyte-mah-yash.vercel.app](https://buildbyte-mah-yash.vercel.app)
 
 👥 Team: **MahYash Coders**
 -
