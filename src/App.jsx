@@ -14,7 +14,7 @@ import { Reveal } from './components/Reveal.jsx'
 
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-navy overflow-hidden">
+    <div className="relative min-h-screen bg-navy overflow-x-hidden">
       
       {/* GLOW BACKGROUND */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
