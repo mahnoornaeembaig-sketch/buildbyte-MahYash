@@ -1,161 +1,97 @@
-# NED Admission Assistant
+🎓 NED Admission Assistant
+-
+Your Verified Guide to NED 2026 Admissions
 
-**BuildByte 2026 — IEEE NED Student Branch**
+A centralized, stateless, and intelligent platform designed to streamline the university admission process, calculate merit, and provide branch recommendations. All without requiring a user login.
 
-A centralized, no-login web platform for NED University aspirants: a verified
-admission timeline, a department directory, a live merit calculator, an AI
-branch-recommendation tool, and an FAQ chatbot — built to replace thousands of
-repeated, one-on-one senior/volunteer conversations with an instant answer.
+🔗 Live Demo: buildbyte-mah-yash.vercel.app
+-
+👥 Team: **MahYash Coders**
 
-## Team
+Team Members:
 
-- _Add team member names + roles here_
+    Mahnoor Naeem
 
-## Solution overview
+    Yashfeen Raza
 
-Every admission cycle, the same questions get asked and answered informally —
-one student at a time. This doesn't scale. This platform puts verified NED
-admission information in one place and layers instant, AI-assisted guidance
-on top of it, so repeated questions get answered immediately and seniors /
-admission-cell volunteers can focus on what actually needs a human.
+**Solution** **Overview**
+-
+Every year, applicants and volunteers spend countless hours asking and answering the same questions regarding NED University admissions, merit formulas, and department choices. The NED Admission Assistant solves this information chaos by centralizing verified data. We built a lightning-fast, stateless web application that acts as a 24/7 digital counselor, allowing students to instantly access critical timelines, calculate their aggregate, and get personalized department recommendations.
 
-## Features
+Conceptual Explanation & Backstory
+-
+We've all been through moments of being unsure about university procedures and deadlines. Many students either miss them entirely or scramble at the eleventh hour. The NED Admission Assistant exists to fix that, giving aspirants instant, reliable answers instead of a waiting game.
 
-| # | Feature | Where |
-|---|---|---|
-| 1 | Admission timeline (static, verified) | `src/components/Timeline.jsx` |
-| 2 | Department & programme directory | `src/components/Departments.jsx` |
-| 3 | Live merit calculator (60% test + 40% HSC-I) | `src/components/MeritCalculator.jsx` |
-| 4 | AI branch recommendation | `src/components/BranchRecommendation.jsx` + `src/lib/recommend.js` |
-| 5 | Previous merit list PDF viewer | `src/components/MeritListViewer.jsx` |
-| 6 | Floating FAQ chatbot | `src/components/ChatWidget.jsx` |
+**Our backstory:** I (Mahnoor) am the current Team Lead of the NST Admission Gateway Program. In that role, I repeatedly saw students asking the same questions or missing crucial deadlines simply because no one was available to answer in time. While WhatsApp guidance groups exist, no admin can be online 24/7 for every query, so we built a stateless assistant to close that gap.
+We chose a stateless design so students can get answers instantly, with zero friction: no login, no account creation, no waiting on a volunteer to reply. Keeping the Supabase layer separate from the frontend logic also means the data (deadlines, merit formulas, cutoffs) can be updated each admission cycle independently, and the same architecture can scale to other universities without a rebuild.
 
-No login, no accounts, nothing saved server-side — every tool is stateless,
-matching the MVP non-goals in the PRD.
+This is currently an MVP tailored specifically to NED. Looking ahead, we plan to:
 
-## Tech stack
 
-- **Frontend:** React 18 + Vite + Tailwind CSS
-- **Routing/state:** plain React state (single page, anchor-linked sections)
-- **AI:** the branch recommendation currently runs a local scoring function
-  so the demo works with zero backend dependency and zero API latency risk.
-  `src/lib/recommend.js` documents exactly how to swap it for a real Claude
-  or OpenAI API call (e.g. a Supabase Edge Function) without touching any
-  component — see the comment at the top of that file.
-- **Data:** static JS modules in `src/data/` (departments, timeline, merit
-  formula, FAQ). Swap these for a Supabase `departments` / `deadlines` table
-  later without changing component code — each component just imports data.
+Expand the platform to support other universities
+Deepen our AI integration with more advanced AI agent APIs
 
-## Getting started
+Team Work Distribution:
+-
+Yashfeen: Frontend UI/UX design and development
 
-```bash
-npm install
-npm run dev       # local dev server, usually http://localhost:5173
-npm run build      # production build → dist/
-npm run preview    # preview the production build locally
-```
+Mahnoor: Supabase database, Vercel deployment, and GitHub version control
 
-Requires Node 18+.
 
-## Before demo day — data you should verify
 
-The seed data in `src/data/deadlines.js` and `src/data/departments.js` is
-pulled from public NED sources (official admissions schedule + department
-pages), but **you must verify exact current-cycle dates, seat counts, and
-fee figures** against the official portal before presenting:
+✨ Features
+-
+🧮 **Instant Merit Calculator:** Client-side calculation using the official 2026 formula (60% Entry Test + 40% HSC/Equivalency) with exact two-decimal precision.
 
-- https://www.neduet.edu.pk/admission
-- Official admissions schedule PDF (linked in `Timeline.jsx`)
+🤖 **Branch Recommendation Engine:** A rule-based filtering system (hardcoded logic in this MVP) that matches a student's aggregate score, personal interests, and career goals with the right NED department. Full AI-driven recommendations are planned for a future iteration.
 
-Also drop real merit-list PDFs into `public/merit-lists/` and update the
-`href` values in `meritLists` (`src/data/deadlines.js`).
+💬 **FAQ Chatbot:** An embedded, conversational assistant loaded with verified 2026 admission rules, deadlines, and fee structures.
 
-## Project structure
+📂 **Merit List Viewer:** Instant access to previous years' cutoff PDFs.
 
-```
-ned-admission-assistant/
-├── index.html
-├── src/
-│   ├── main.jsx
-│   ├── App.jsx
-│   ├── index.css
-│   ├── components/
-│   │   ├── Nav.jsx
-│   │   ├── Hero.jsx
-│   │   ├── Timeline.jsx
-│   │   ├── Departments.jsx
-│   │   ├── MeritCalculator.jsx
-│   │   ├── BranchRecommendation.jsx
-│   │   ├── MeritListViewer.jsx
-│   │   ├── ChatWidget.jsx
-│   │   └── Footer.jsx
-│   ├── data/
-│   │   ├── departments.js
-│   │   ├── deadlines.js
-│   │   └── faq.js
-│   └── lib/
-│       └── recommend.js
-├── public/
-│   └── merit-lists/        ← put PDFs here
-├── tailwind.config.js
-├── postcss.config.js
-├── vite.config.js
-└── package.json
-```
+🔒 **Secure Anonymous Feedback:** A stateless review form connected to a Supabase backend, using strict Row Level Security (RLS) policies to allow public submissions while keeping viewing admin-only.
 
-## Design
+ Technology Stack
+-
 
-A "drafting sheet" visual language: deep blueprint-navy backgrounds, a faint
-grid, amber accents for anything time-sensitive (deadlines, CTAs), and
-corner registration marks on key panels — nodding to engineering drawings,
-since every visitor is (or is about to become) an engineering student.
-Typefaces: Space Grotesk (display), IBM Plex Sans (body), IBM Plex Mono
-(data — scores, dates, labels).
+**Frontend:** React, Vite, Tailwind CSS
 
-## Deploying
+**Backend & Database:** Supabase (PostgreSQL) with strict Row Level Security (RLS)
 
-The PRD targets Vercel:
+**Deployment & Hosting:** Vercel
 
-```bash
-npm i -g vercel
-vercel
-```
+🚀 Setup & Local Installation
+-
 
-Or connect the GitHub repo directly at vercel.com/new — it auto-detects Vite.
+**Clone the repository**
 
-## Uploading to GitHub
+    git clone https://github.com/mahnoornaeembaig-sketch/buildbyte-MahYash.git
+    cd your-repo-name
 
-From inside the `ned-admission-assistant` folder:
+**Install dependencies**
 
-```bash
-git init
-git add .
-git commit -m "Initial commit — NED Admission Assistant"
-git branch -M main
-git remote add origin https://github.com/<your-username>/<repo-name>.git
-git push -u origin main
-```
+    npm install    
 
-If you don't have a repo yet:
+**Configure environment variables**
 
-1. Go to https://github.com/new
-2. Name it (e.g. `ned-admission-assistant`), leave it **empty** (no README/
-   .gitignore/license — you already have those), set visibility, click
-   **Create repository**.
-3. Copy the HTTPS URL GitHub shows you and use it as `<repo-url>` above.
-4. Run the four commands above from your terminal, inside this project
-   folder.
-5. Refresh the GitHub page — your code should be there.
+Create a .env file in the root directory (see Environment Variables below) and add your Supabase project URL and anon key.
 
-If `git push` asks for a password: GitHub no longer accepts your account
-password over HTTPS. Use a Personal Access Token instead
-(Settings → Developer settings → Personal access tokens → Tokens (classic)
-→ Generate new token, scope `repo`), and paste the token in place of your
-password when prompted. Or push over SSH if you already have an SSH key
-added to your GitHub account.
+**Run the development server**
 
-## Non-goals (explicitly deferred — say this in the pitch)
+   npm run dev
 
-No accounts/login, no multi-university coverage, no merit trend charts, no
-saved checklists, no payment/application submission — this is an
-information + guidance layer, not an application portal.
+The app will be available at http://localhost:5173 (default Vite port).
+
+**Build for production (optional)**
+
+    npm run build
+
+⚙️ Environment Variables
+-
+
+To run this project locally, create a .env file in the root directory. Do not expose your actual keys. The file should contain the following variables:
+
+VITE_SUPABASE_URL=your_supabase_project_url_here
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key_here
+
+If you'd like access to the actual keys (e.g., for testing or evaluation), kindly reach out to us via email.
