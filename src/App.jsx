@@ -6,6 +6,7 @@ import OfficialLinks from './components/OfficialLinks.jsx'
 import MeritCalculator from './components/MeritCalculator.jsx'
 import BranchRecommendation from './components/BranchRecommendation.jsx'
 import MeritListViewer from './components/MeritListViewer.jsx'
+import ReviewForm from './components/ReviewForm.jsx'
 import ChatWidget from './components/ChatWidget.jsx'
 import Footer from './components/Footer.jsx'
 
@@ -21,6 +22,7 @@ export default function App() {
         <MeritCalculator />
         <BranchRecommendation />
         <MeritListViewer />
+        <ReviewForm />
       </main>
       <Footer />
       <ChatWidget />
