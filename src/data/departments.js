@@ -73,13 +73,52 @@ export const faculties = [
   }
 ];
 
-// This safely rebuilds the object structure your teammate's code expects 
-// so the AI Branch Recommendation form doesn't crash!
+// Interest/goal tags used by the AI Branch Recommendation matcher.
+// Keep tags short and specific — they're matched as substrings/words
+// against the student's free-text interests and career goal.
+const interestMap = {
+  "Civil Engineering": ["construction", "structures", "buildings", "infrastructure", "concrete", "surveying", "roads", "bridges"],
+  "Urban and Infrastructure Engineering": ["urban planning", "infrastructure", "city", "transport", "roads", "public works"],
+  "Petroleum Engineering": ["oil", "gas", "petroleum", "drilling", "reservoir", "energy", "fuel"],
+  "Earthquake Engineering": ["earthquake", "seismic", "structural safety", "disaster", "geotechnical"],
+  "Environmental Engineering": ["environment", "pollution", "sustainability", "water treatment", "waste", "climate", "ecology"],
+
+  "Electrical Engineering": ["electrical", "circuits", "power", "energy systems", "electronics", "wiring", "grid"],
+  "Electronic Engineering": ["electronics", "circuits", "embedded systems", "hardware", "chips", "signal processing"],
+  "Telecommunications Engineering": ["telecom", "networks", "communication systems", "wireless", "signal", "5g"],
+  "Computer and Information Systems Engineering": ["computer systems", "networks", "information systems", "databases", "it infrastructure"],
+  "Bio-Medical Engineering": ["biomedical", "medical devices", "healthcare technology", "biology", "medicine", "health"],
+  "Computer Science & Information Technology": ["programming", "coding", "computer science", "software", "algorithms", "data", "ai", "artificial intelligence", "web development", "apps"],
+  "Software Engineering": ["software", "programming", "coding", "apps", "web development", "software products", "development"],
+
+  "Mechanical Engineering": ["mechanical", "machines", "engines", "design", "manufacturing", "robotics", "thermodynamics"],
+  "Industrial and Manufacturing Engineering": ["manufacturing", "production", "industrial", "supply chain", "quality control", "factories"],
+  "Textile Engineering": ["textile", "fabric", "fashion", "clothing", "yarn", "weaving"],
+  "Automotive and Marine Engineering": ["automotive", "cars", "vehicles", "engines", "marine", "ships", "boats"],
+
+  "Chemical Engineering": ["chemistry", "chemical processes", "reactions", "plants", "process design"],
+  "Polymer and Petrochemical Engineering": ["polymers", "plastics", "petrochemicals", "materials"],
+  "Materials Engineering": ["materials", "metals", "composites", "material science"],
+  "Metallurgical Engineering": ["metallurgy", "metals", "mining", "alloys"],
+  "Food Engineering": ["food", "food processing", "food science", "agriculture", "nutrition"],
+
+  "Architecture and Planning": ["architecture", "design", "buildings", "urban planning", "aesthetics", "interior design", "drawing", "sketching"],
+  "Economics and Management Sciences": ["business", "economics", "management", "finance", "entrepreneurship", "marketing"],
+  "Physics": ["physics", "science", "research", "theoretical", "experiments"],
+  "Chemistry": ["chemistry", "science", "research", "lab work", "experiments"],
+  "Mathematics": ["mathematics", "math", "statistics", "logic", "problem solving", "numbers"],
+  "English Linguistics & Allied Studies": ["english", "linguistics", "writing", "literature", "language", "communication"],
+  "Essential Studies": ["general studies", "foundational courses"],
+
+  "Civil Engineering [TIEST]": ["construction", "structures", "buildings", "infrastructure", "roads", "bridges"],
+  "Computer Science and Technology [TIEST]": ["programming", "coding", "computer science", "software", "technology", "it"]
+};
+
 export const allDepartments = faculties.flatMap((f) =>
-  f.departments.map((deptName) => ({ 
-    name: deptName, 
+  f.departments.map((deptName) => ({
+    name: deptName,
     faculty: f.name,
     blurb: 'Official NED Undergraduate Programme',
-    interests: [] 
+    interests: interestMap[deptName] || []
   }))
 );

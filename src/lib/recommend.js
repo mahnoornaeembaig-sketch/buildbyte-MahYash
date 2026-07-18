@@ -3,50 +3,67 @@ import { allDepartments } from '../data/departments.js'
 // This function scores departments locally against the student's stated
 // interests and goal so the demo works with zero backend dependency.
 //
-// To wire this to the real AI call described in the PRD (6.3), replace
-// the body of `getRecommendation` with a fetch to your Supabase Edge
-// Function / API route, e.g.:
-//
-//   export async function getRecommendation(input) {
-//     const res = await fetch('/api/recommend', {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify(input),
-//     })
-//     return res.json() // { picks: [{ name, faculty, reason }] }
-//   }
-//
-// Keep the input/output shape the same and every component that calls
-// this stays untouched.
+// To wire this to a real backend later, replace the body of
+// getRecommendation with a fetch to your API/Edge Function, keeping the
+// same input/output shape so no component changes are needed.
+
+const STOP_WORDS = new Set([
+  'and', 'the', 'a', 'an', 'to', 'of', 'in', 'for', 'with', 'my', 'i', 'want',
+  'like', 'love', 'be', 'become', 'work', 'working', 'build', 'building',
+])
+
+function tokenize(text) {
+  return text
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter((w) => w.length > 2 && !STOP_WORDS.has(w))
+}
 
 export async function getRecommendation({ percentage, interests, goal }) {
   const interestText = interests.toLowerCase()
   const goalText = goal.toLowerCase()
+  const combinedText = `${interestText} ${goalText}`
+  const combinedTokens = new Set([...tokenize(interestText), ...tokenize(goalText)])
 
   const scored = allDepartments.map((d) => {
     let score = 0
-    const reasons = []
+    const reasons = new Set()
 
     d.interests.forEach((tag) => {
-      if (interestText.includes(tag)) {
+      const tagLower = tag.toLowerCase()
+
+      // Full-phrase match (e.g. "computer science" appears verbatim)
+      if (combinedText.includes(tagLower)) {
         score += 3
-        reasons.push(`matches your interest in ${tag}`)
+        reasons.add(`matches your interest in ${tag}`)
+        return
       }
-    })
 
-    d.interests.forEach((tag) => {
-      const words = tag.split(' ')
-      if (words.some((w) => w.length > 3 && goalText.includes(w))) {
+      // Word-level match: any significant word in the tag appears in
+      // what the student typed (e.g. tag "programming" matches "I love
+      // programming apps")
+      const tagWords = tagLower.split(' ').filter((w) => w.length > 3)
+      const hit = tagWords.some((w) => combinedTokens.has(w))
+      if (hit) {
         score += 2
-        reasons.push(`aligns with your goal of "${goal.trim()}"`)
+        reasons.add(`relates to your interest in ${tag}`)
       }
     })
 
-    if (percentage >= 80 && ['Electronic Engineering', 'Computer & Information Systems Engineering', 'BS Computer Science', 'Civil Engineering', 'Electrical Engineering'].includes(d.name)) {
+    if (
+      percentage >= 80 &&
+      [
+        'Electronic Engineering',
+        'Computer and Information Systems Engineering',
+        'Computer Science & Information Technology',
+        'Civil Engineering',
+        'Electrical Engineering',
+      ].includes(d.name)
+    ) {
       score += 1
     }
 
-    return { ...d, score, reasons: [...new Set(reasons)] }
+    return { ...d, score, reasons: [...reasons] }
   })
 
   const ranked = scored.sort((a, b) => b.score - a.score)
